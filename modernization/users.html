@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="users" data-roles="superadmin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="superadmin-dashboard.html">Home</a> / Users</div>
+      <h1>User Management</h1>
+      <p>View and search users so that you can manage platform accounts</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <form class="filters" id="filter-form">
+      <div class="field grow"><label>Search User</label>
+        <div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Enter name, email or phone number"></div></div>
+      <div class="field"><label>Role</label>
+        <select class="select" id="f-role"><option value="">All Roles</option><option>Super Admin</option><option>Admin</option><option>Architect</option><option>Executive</option></select></div>
+      <div class="field"><label>Status</label>
+        <select class="select" id="f-status"><option value="">All Status</option><option>Active</option><option>Inactive</option></select></div>
+      <button class="btn" type="submit" id="btn-search">Search</button>
+      <button class="btn btn-outline" type="button" id="btn-clear">Clear</button>
+    </form>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head">
+      <h2 id="u-count">Users</h2>
+      <button class="btn" id="btn-add"><span data-i="plus"></span>Add New User</button>
+    </div>
+    <div id="u-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/users.js"></script>
+</body>
+</html>

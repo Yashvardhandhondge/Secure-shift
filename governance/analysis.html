@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis Wizard - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="analysis">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Access Analysis Wizard</h1>
+      <p>Analyse granted vs used permissions in 4 streamlined stages.</p>
+    </div>
+    <div class="page-actions"><button class="btn btn-outline" id="btn-previous">View Previous Analyses</button></div>
+  </div>
+
+  <div class="stepper" id="stepper">
+    <div class="step" data-step="1"><span class="dot">1</span><span class="label">Upload Inputs</span></div>
+    <div class="step" data-step="2"><span class="dot">2</span><span class="label">Validate Data</span></div>
+    <div class="step" data-step="3"><span class="dot">3</span><span class="label">Run Analysis</span></div>
+    <div class="step" data-step="4"><span class="dot">4</span><span class="label">Results</span></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="card" data-panel="1">
+    <h2>Step 1: Upload Input Files</h2>
+    <p class="muted small">Upload the required JSON files to begin the access analysis.</p>
+    <div class="grid g-3 mt" id="uploads"></div>
+    <div class="block-grey mt">
+      <div class="row-between wrap"><b class="row"><span data-i="clock"></span>Analysis Period</b><span class="small muted" id="period-summary"></span></div>
+      <div class="grid g-4 mt">
+        <div class="field"><label>Company</label><select class="select" id="company"></select></div>
+        <div class="field"><label>Period</label>
+          <select class="select" id="period"><option value="30">Last 30 days</option><option value="60">Last 60 days</option><option value="90" selected>Last 90 days</option><option value="custom">Custom range</option></select></div>
+        <div class="field"><label>From <span class="req">*</span></label><input class="input" type="date" id="p-from"></div>
+        <div class="field"><label>To <span class="req">*</span></label><input class="input" type="date" id="p-to"></div>
+      </div>
+      <p class="small muted mt">Only Activity Log events inside this fixed period are analysed. Allowed length: 7 to 180 days, ending today or earlier.</p>
+    </div>
+    <p class="small muted mt row" style="gap:6px"><span data-i="lock"></span>All files are processed locally. No data leaves this machine.</p>
+    <div class="row-between mt-lg">
+      <button class="btn btn-outline" id="btn-cancel-1">Cancel</button>
+      <button class="btn" id="btn-next-1" disabled>Next: Validate Data &rarr;</button>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="card hidden" data-panel="2">
+    <h2>Step 2: Validate Data</h2>
+    <p class="muted small">We check that every file has the right structure before analysing.</p>
+    <div class="checks mt" id="checks"></div>
+    <div class="row-between mt-lg">
+      <button class="btn btn-outline" id="btn-back-2">&larr; Back</button>
+      <button class="btn" id="btn-next-2" disabled>Next: Run Analysis &rarr;</button>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="card hidden" data-panel="3">
+    <h2>Step 3: Run Analysis</h2>
+    <p class="muted small">Comparing granted permissions with observed Activity Log events.</p>
+    <div class="progress mt-lg"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="row-between small mt"><span id="progress-text">Starting...</span><b id="progress-pct">0%</b></div>
+    <div class="checks mt" id="stages"></div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="card hidden center" data-panel="4" style="padding:36px">
+    <div class="modal-icon" data-i="checkCircle" style="width:64px;height:64px"></div>
+    <h1 style="font-size:22px">Analysis Complete!</h1>
+    <p class="muted">Your results are ready for review.</p>
+    <div class="summary-box mt-lg">
+      <dl class="kv">
+        <dt>Analysis ID</dt><dd id="r-id"></dd>
+        <dt>Completed</dt><dd id="r-date"></dd>
+        <dt>Company</dt><dd id="r-company"></dd>
+        <dt>Analysis Period</dt><dd id="r-period"></dd>
+        <dt>Status</dt><dd><span class="badge badge-solid">Complete</span></dd>
+      </dl>
+      <dl class="kv">
+        <dt>Identities Analysed</dt><dd id="r-ids"></dd>
+        <dt>Average Score</dt><dd id="r-avg"></dd>
+        <dt>High-Risk Unused</dt><dd id="r-risk"></dd>
+        <dt>Roles Generated</dt><dd id="r-roles"></dd>
+      </dl>
+    </div>
+    <div class="row mt-lg" style="justify-content:center">
+      <a class="btn" href="identities.html" id="btn-view-identities"><span data-i="search"></span>View Identities</a>
+      <a class="btn btn-outline" href="dashboard.html" id="btn-return"><span data-i="home"></span>Return to Dashboard</a>
+      <button class="btn btn-outline" id="btn-again"><span data-i="refresh"></span>Run Another</button>
+    </div>
+  </section>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/analysis.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modernization Simulation - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="simulation" data-roles="architect">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="architect-dashboard.html">Home</a> / Simulations</div>
+      <h1>Modernization Simulation</h1>
+      <p>Pick an assessed application and a strategy. We calculate Dependency Impact, Strategy Risk, Modernization Risk, Effort and Cost.</p>
+    </div>
+  </div>
+
+  <form class="card" id="sim-form" novalidate>
+    <div class="card-head"><h2>1. Simulation Setup</h2><span class="small muted">Only applications with a completed assessment are listed</span></div>
+    <div class="grid g-2-1">
+      <div class="field"><label>Application <span class="req">*</span></label><select class="select" id="s-app"></select></div>
+      <div class="field"><label>&nbsp;</label><a class="btn btn-outline" href="applications.html" id="btn-need-assess"><span data-i="clipboard"></span>Assess another application</a></div>
+    </div>
+    <div class="ro-grid mt" id="app-summary"></div>
+
+    <div class="section-title"><span data-i="layers"></span>Strategy <span class="req">*</span></div>
+    <div class="grid g-4" id="s-strategy"></div>
+
+    <div class="row mt-lg" style="justify-content:flex-end">
+      <button class="btn" type="submit" id="btn-run"><span data-i="play"></span>Run Simulation</button>
+    </div>
+  </form>
+
+  <div id="result" class="hidden">
+    <div class="card mt">
+      <div class="card-head"><h2>2. Simulation Result</h2><span class="small muted" id="r-id"></span></div>
+      <div class="grid g-5" id="metrics"></div>
+      <div class="grid g-2-1 mt">
+        <div>
+          <b class="small">Dependency impact - systems affected by this change</b>
+          <div class="graph-wrap mt" id="impact-graph"></div>
+        </div>
+        <div class="reco" id="reco"></div>
+      </div>
+    </div>
+
+    <div class="card mt">
+      <div class="card-head"><h2>3. Calculation Breakdown</h2></div>
+      <div class="grid g-3" id="breakdown"></div>
+      <div class="row wrap mt-lg" style="justify-content:flex-end">
+        <button class="btn btn-outline" type="button" id="btn-discard"><span data-i="x"></span>Discard / Modify</button>
+        <a class="btn" href="create-plan.html" id="btn-create-plan"><span data-i="map"></span>Create Plan from this Simulation</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>Simulation History</h2></div>
+    <div id="history"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/simulation.js"></script>
+</body>
+</html>

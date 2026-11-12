@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Admin Dashboard - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="dashboard" data-roles="superadmin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs">Home / Dashboard</div>
+      <h1>Super Admin Dashboard</h1>
+      <p>View platform user summaries and monitor user activities</p>
+    </div>
+    <div class="page-actions">
+      <a class="btn btn-outline" href="audit-logs.html" id="btn-audit"><span data-i="clipboard"></span>Audit Logs</a>
+      <a class="btn" href="users.html?add=1" id="btn-add-user"><span data-i="plus"></span>Add New User</a>
+    </div>
+  </div>
+
+  <div class="grid g-4">
+    <a class="card stat" href="users.html" id="k-total-link"><div class="stat-icon" data-i="users"></div><div><div class="stat-label">Total Users</div><div class="stat-value" id="k-total"></div></div></a>
+    <a class="card stat" href="users.html?status=Active"><div class="stat-icon" data-i="user"></div><div><div class="stat-label">Active Users</div><div class="stat-value" id="k-active"></div></div></a>
+    <a class="card stat" href="users.html?status=Inactive"><div class="stat-icon" data-i="power"></div><div><div class="stat-label">Inactive Users</div><div class="stat-value" id="k-inactive"></div></div></a>
+    <div class="card stat"><div class="stat-icon" data-i="shield"></div><div><div class="stat-label">Total Roles</div><div class="stat-value">4</div></div></div>
+  </div>
+
+  <div class="grid g-2 mt">
+    <div class="card">
+      <div class="card-head"><h2>Users By Role</h2></div>
+      <div id="by-role"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Recent User Activity</h2><a href="audit-logs.html" class="small bold" id="lnk-view-all">View All</a></div>
+      <div id="recent-activity"></div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>Recent Access Changes</h2><a class="btn btn-outline btn-sm" href="users.html" id="btn-manage">Manage Users</a></div>
+    <div id="access-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/superadmin-dashboard.js"></script>
+</body>
+</html>

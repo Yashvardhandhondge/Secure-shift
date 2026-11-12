@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plans - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="plans" data-roles="architect">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="architect-dashboard.html">Home</a> / Plans</div>
+      <h1>Modernization Plans</h1>
+      <p>Every plan is created from a completed simulation. Draft &rarr; Submitted &rarr; Approved or Rejected by the Executive.</p>
+    </div>
+    <div class="page-actions"><a class="btn" href="simulation.html" id="btn-new"><span data-i="play"></span>Create Plan from a Simulation</a></div>
+  </div>
+
+  <div class="grid g-4" id="kpis"></div>
+
+  <div class="card mt">
+    <div class="filters">
+      <div class="field grow"><label>Search</label><div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search plan or application"></div></div>
+      <div class="field"><label>Status</label><select class="select" id="f-status"><option value="">All</option><option>Draft</option><option>Submitted</option><option>Approved</option><option>Rejected</option></select></div>
+    </div>
+    <div id="plan-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/plans.js"></script>
+</body>
+</html>

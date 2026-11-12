@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - SecureShift</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body data-root="">
+<div class="public">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <span class="brand-mark" id="logo-mark"></span>
+        <b>SECURESHIFT</b>
+        <span>Modernize · Govern · Secure</span>
+      </div>
+
+      <h1>Welcome Back</h1>
+      <p class="sub">Sign in to access your SecureShift account</p>
+
+      <div class="seg" role="tablist" aria-label="Choose product">
+        <button type="button" data-product="governance" id="tab-custom-role"></button>
+        <button type="button" data-product="emdt" id="tab-emdt"></button>
+      </div>
+
+      <div id="login-alert"></div>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <div class="input-icon">
+            <span id="ic-mail"></span>
+            <input class="input" type="email" id="email" placeholder="Enter your email address" autocomplete="username">
+          </div>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <div class="input-icon" style="position:relative">
+            <span id="ic-lock"></span>
+            <input class="input" type="password" id="password" placeholder="Enter your password" autocomplete="current-password" style="padding-right:40px">
+            <button type="button" class="pw-toggle" id="pw-toggle" aria-label="Show password"></button>
+          </div>
+        </div>
+        <div class="auth-row">
+          <label class="check"><input type="checkbox" id="remember"> Remember Me</label>
+          <button type="button" class="link-btn" id="forgot">Forgot Password?</button>
+        </div>
+        <button class="btn btn-block" type="submit" id="btn-login" style="height:44px">LOGIN <span id="ic-arrow"></span></button>
+      </form>
+
+      <div class="divider">DEMO ACCOUNTS (click to fill)</div>
+      <div class="demo-list" id="demo-list"></div>
+
+      <p class="center small muted mt">User accounts are managed by SecureShift Administrators.</p>
+      <div class="auth-foot" id="auth-foot"></div>
+      <p class="center small mt"><a href="index.html" id="back-home">&larr; Back to Home</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/common/core.js"></script>
+<script src="js/common/ui.js"></script>
+<script src="js/data/users.js"></script>
+<script src="js/pages/login.js"></script>
+</body>
+</html>

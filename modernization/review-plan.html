@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Modernization Plan - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="dashboard" data-roles="executive">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="executive-dashboard.html">Home</a> / <a href="executive-dashboard.html">Executive Approval Dashboard</a> / Review Plan</div>
+      <h1 id="page-title">Review Modernization Plan</h1>
+      <p>Review the plan and the exact values used when it was created, then decide.</p>
+    </div>
+    <div class="page-actions"><span id="status-badge"></span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Plan Summary</h2><span class="small muted mono" id="plan-id"></span></div>
+    <div class="ro-grid" id="summary"></div>
+    <details class="snapshot mt"><summary>View Breakdown (calculation snapshot)</summary><div id="snapshot" class="mt"></div></details>
+  </div>
+
+  <div class="grid g-2 mt">
+    <div class="card">
+      <div class="card-head"><h2>Plan Details</h2></div>
+      <dl class="kv" id="details" style="grid-template-columns:140px 1fr"></dl>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Recommendation &amp; Notes</h2></div>
+      <div class="reco" id="reco"></div>
+      <h3 class="mt">Architect Notes</h3>
+      <p class="muted mt" id="notes"></p>
+    </div>
+  </div>
+
+  <div class="grid g-2 mt">
+    <div class="card"><div class="card-head"><h2>Affected Systems</h2></div><div id="affected"></div></div>
+    <div class="card"><div class="card-head"><h2>Proposed Phases</h2></div><div id="phases"></div></div>
+  </div>
+
+  <div class="card mt" id="decision-card">
+    <div class="card-head"><h2>Your Decision</h2></div>
+    <div class="field"><label>Executive Comment <span class="muted" style="font-weight:400">(required to reject, max 300)</span></label>
+      <textarea class="textarea" id="note" maxlength="300" placeholder="Business justification for approving or rejecting"></textarea></div>
+    <div class="row mt" style="justify-content:flex-end">
+      <button class="btn btn-outline" id="btn-reject"><span data-i="xCircle"></span>Reject</button>
+      <button class="btn" id="btn-approve"><span data-i="checkCircle"></span>Approve</button>
+    </div>
+  </div>
+
+  <div class="row mt"><a class="btn btn-outline" href="executive-dashboard.html" id="btn-back"><span data-i="arrowLeft"></span>Back to Dashboard</a></div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/review-plan.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Application - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="apps" data-roles="admin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="admin-dashboard.html">Home</a> / <a href="applications.html" id="crumb-apps">Applications</a> / <span id="crumb-last">Register Application</span></div>
+      <h1 id="page-title">Register Application</h1>
+      <p id="page-sub">Add an application to the enterprise inventory. These values are used later for assessment.</p>
+    </div>
+    <div class="page-actions"><a class="btn btn-outline" href="applications.html" id="btn-back"><span data-i="arrowLeft"></span>Back to Applications</a></div>
+  </div>
+
+  <div class="grid g-2-1">
+    <form class="card" id="app-form" novalidate>
+      <div class="card-head"><h2 id="form-head">Application Details</h2><span class="small muted" id="ent-label"></span></div>
+
+      <div class="section-title"><span data-i="file"></span>Basic Information</div>
+      <div class="form-grid">
+        <div class="field full"><label>Application Name <span class="req">*</span></label><input class="input" id="a-name" maxlength="60" placeholder="e.g. Trade Finance Portal"></div>
+        <div class="field"><label>Business Unit <span class="req">*</span></label><input class="input" id="a-unit" maxlength="50" placeholder="e.g. Corporate Banking"></div>
+        <div class="field"><label>Owner Team <span class="req">*</span></label><input class="input" id="a-owner" maxlength="50" placeholder="e.g. Trade Team"></div>
+        <div class="field"><label>Application Status <span class="req">*</span></label><select class="select" id="a-status"><option value="">Select status</option><option>Active</option><option>Legacy</option></select></div>
+        <div class="field"><label>Deployment Type <span class="req">*</span></label><select class="select" id="a-deployment"><option value="">Select deployment</option><option>On-Premise</option><option>Private Cloud</option><option>Public Cloud</option><option>Hybrid Cloud</option></select></div>
+      </div>
+
+      <div class="section-title"><span data-i="code"></span>Technical Details (Technical Debt inputs)</div>
+      <div class="form-grid">
+        <div class="field"><label>Technology <span class="req">*</span></label><select class="select" id="a-tech"><option value="">Select technology</option><option>Java</option><option>PHP</option><option>.NET</option><option>COBOL</option></select></div>
+        <div class="field"><label>Framework Version <span class="req">*</span></label><input class="input" id="a-framework" maxlength="40" placeholder="e.g. Java 8, .NET 6, PHP 7.2"></div>
+        <div class="field"><label>Framework Support Status <span class="req">*</span></label><div class="radio-row" data-radio="support" id="a-support"></div></div>
+        <div class="field"><label>Application Age (years) <span class="req">*</span></label><input class="input" type="number" id="a-age" min="0" max="60"></div>
+        <div class="field"><label>Documentation Quality <span class="req">*</span></label><div class="radio-row" data-radio="doc" id="a-doc"></div></div>
+        <div class="field"><label>Code Complexity <span class="req">*</span></label><div class="radio-row" data-radio="complexity" id="a-complexity"></div></div>
+        <div class="field"><label>Lines of Code <span class="req">*</span></label><input class="input" type="number" id="a-loc" min="100" placeholder="e.g. 450000"></div>
+      </div>
+
+      <div class="section-title"><span data-i="shield"></span>Business &amp; Risk Details (Governance Risk inputs)</div>
+      <div class="form-grid">
+        <div class="field"><label>Business Criticality <span class="req">*</span></label><div class="radio-row" data-radio="crit" id="a-crit"></div></div>
+        <div class="field"><label>Sensitive Data <span class="req">*</span></label><div class="radio-row" data-radio="sensitive" id="a-sensitive"></div></div>
+        <div class="field"><label>Open Security Issues <span class="req">*</span></label><input class="input" type="number" id="a-security" min="0" max="999"></div>
+        <div class="field"><label>Downtime Tolerance <span class="req">*</span></label><div class="radio-row" data-radio="downtime" id="a-downtime"></div></div>
+        <div class="field"><label>Compliance Policies that apply <span class="req">*</span></label><input class="input" type="number" id="a-compliance" min="0" max="10" placeholder="0 - 10 (e.g. PCI DSS + GDPR = 2)"></div>
+      </div>
+
+      <div class="row mt-lg" style="justify-content:flex-end">
+        <a class="btn btn-outline" href="applications.html" id="btn-cancel">Cancel</a>
+        <button class="btn btn-outline" type="button" id="btn-save-continue"><span data-i="link"></span>Save &amp; Map Dependencies</button>
+        <button class="btn" type="submit" id="btn-save"><span data-i="check"></span><span id="save-label">Save Application</span></button>
+      </div>
+    </form>
+
+    <aside class="guide">
+      <b>Guidelines</b>
+      <ul>
+        <li>Application name: 3-60 characters, unique inside the enterprise.</li>
+        <li>Framework version: e.g. "Java 8" - support status tells if the vendor still supports it.</li>
+        <li>Age 0-60, security issues 0-999, compliance policies 0-10, lines of code 100 or more.</li>
+        <li>Downtime tolerance <b>Low</b> means the business cannot accept downtime.</li>
+        <li>Components (services, databases, APIs) are added on the Dependencies tab.</li>
+      </ul>
+    </aside>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/register-application.js"></script>
+</body>
+</html>

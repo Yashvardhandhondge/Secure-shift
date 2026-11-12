@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Logs - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="audit" data-roles="superadmin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="superadmin-dashboard.html">Home</a> / Audit Logs</div>
+      <h1>Audit Logs</h1>
+      <p>Every important action on the platform, newest first</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="filters">
+      <div class="field grow"><label>Search</label>
+        <div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search user, action or target"></div></div>
+      <div class="field"><label>Action</label><select class="select" id="f-action"><option value="">All Actions</option></select></div>
+      <div class="field"><label>Performed By</label><select class="select" id="f-user"><option value="">All Users</option></select></div>
+      <button class="btn btn-outline" id="btn-clear">Clear</button>
+    </div>
+    <div id="log-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/audit-logs.js"></script>
+</body>
+</html>

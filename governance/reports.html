@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="reports">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Reports</h1>
+      <p>Audit-ready HTML reports for every analysis run</p>
+    </div>
+    <div class="page-actions"><button class="btn" id="btn-generate"><span data-i="plus"></span>Generate New Report</button></div>
+  </div>
+
+  <div class="grid g-2">
+    <div class="card">
+      <div class="card-head"><h2>Generated Reports</h2></div>
+      <div id="rep-table"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2 id="pv-title">Report Preview</h2></div>
+      <div class="preview" id="preview"></div>
+      <div class="row wrap mt">
+        <button class="btn" id="btn-open"><span data-i="eye"></span>Open Full Report</button>
+        <button class="btn btn-outline" id="btn-print"><span data-i="printer"></span>Print</button>
+        <button class="btn btn-outline" id="btn-download"><span data-i="download"></span>Download</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>

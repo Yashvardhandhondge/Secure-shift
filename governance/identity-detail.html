@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identity Detail - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="identities">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="identities.html" id="crumb-identities">Identities</a> / <span id="crumb-name"></span></div>
+      <h1>Identity Detail and Evidence</h1>
+      <p>Why this identity got its score, and the exact evidence behind it</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-outline" id="btn-export-evidence"><span data-i="download"></span>Export Evidence</button>
+      <a class="btn" id="btn-view-role" href="roles.html"><span data-i="key"></span>View Generated Role</a>
+    </div>
+  </div>
+
+  <div class="grid g-2">
+    <div class="card">
+      <div class="card-head"><h2>Identity Summary</h2></div>
+      <dl class="kv" id="summary"></dl>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Over-Privilege Score</h2><span id="risk-badge"></span></div>
+      <div class="row" style="align-items:baseline;gap:6px"><span id="big-score" style="font-size:44px;font-weight:900;letter-spacing:-1px"></span><span class="muted">/ 100</span></div>
+      <div class="table-wrap mt"><table class="table"><thead><tr><th>Signal</th><th>Value</th><th>Weight</th></tr></thead><tbody id="signals"></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="grid g-3 mt">
+    <div class="card stat"><div class="stat-icon" data-i="key"></div><div><div class="stat-label">Granted</div><div class="stat-value" id="k-granted"></div></div></div>
+    <div class="card stat"><div class="stat-icon" data-i="activity"></div><div><div class="stat-label">Used</div><div class="stat-value" id="k-used"></div></div></div>
+    <div class="card stat"><div class="stat-icon" data-i="alert"></div><div><div class="stat-label">Unused</div><div class="stat-value" id="k-unused"></div></div></div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2 id="used-title">Permissions Used</h2><span class="small muted">Click a row to see its evidence</span></div>
+    <div id="used-table"></div>
+    <button class="link-btn mt" id="btn-more"></button>
+  </div>
+
+  <div class="grid g-2 mt">
+    <div class="card">
+      <div class="card-head"><h2 id="evidence-title">Evidence</h2></div>
+      <div id="evidence-table"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2 id="unused-title">Unused High-Risk Permissions</h2></div>
+      <div id="unused-list"></div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/identity-detail.js"></script>
+</body>
+</html>

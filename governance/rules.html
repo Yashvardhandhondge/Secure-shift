@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rules Configuration - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="rules">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Rules Configuration</h1>
+      <p>Edit scoring weights and high-risk patterns (stored in rules.json)</p>
+    </div>
+    <div class="page-actions"><button class="btn btn-outline" id="btn-view-json"><span data-i="code"></span>View rules.json</button></div>
+  </div>
+
+  <div class="grid g-2">
+    <div class="card">
+      <div class="card-head"><h2>Score Weights</h2><span id="w-total-badge"></span></div>
+      <div class="weight-row"><span>Unused permission ratio</span><div class="input-icon"><input class="input" type="number" id="w-unused" min="0" max="100"></div></div>
+      <div class="weight-row"><span>Unused high-risk actions</span><input class="input" type="number" id="w-highRisk" min="0" max="100"></div>
+      <div class="weight-row"><span>Scope breadth</span><input class="input" type="number" id="w-scope" min="0" max="100"></div>
+      <div class="row-between mt"><b>Total</b><b id="w-total"></b></div>
+      <p class="small muted mt">Weights must add up to exactly 100%.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>High-Risk Patterns</h2><button class="btn btn-outline btn-sm" id="btn-add-pattern"><span data-i="plus"></span>Add Pattern</button></div>
+      <div id="patterns"></div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>Analysis Settings</h2></div>
+    <div class="grid g-3">
+      <div class="field"><label>Default analysis period</label>
+        <select class="select" id="s-window"><option>30 days</option><option>60 days</option><option>90 days</option><option>180 days</option></select></div>
+      <div class="field"><label>Rare action threshold (events)</label><input class="input" type="number" id="s-rare" min="1" max="50"></div>
+      <div class="field"><label>&nbsp;</label><label class="check"><input type="checkbox" id="s-baseline"> Include baseline read permissions in generated roles</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-lg" style="justify-content:flex-end">
+    <button class="btn btn-outline" id="btn-reset">Reset to Default</button>
+    <button class="btn" id="btn-save">Save Changes</button>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/rules.js"></script>
+</body>
+</html>

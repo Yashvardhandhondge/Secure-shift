@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+</head>
+<body data-root="../" data-product="governance" data-page="dashboard">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1 id="welcome">Welcome back</h1>
+      <p>Overview of your identities, over-privilege scores and pending reviews</p>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="analysis.html" id="btn-new-analysis"><span data-i="wand"></span>Start New Analysis</a>
+    </div>
+  </div>
+
+  <div class="card row" style="gap:14px" id="status-card">
+    <span data-i="checkCircle" class="ic-lg"></span>
+    <div style="flex:1"><b id="status-title"></b><div class="muted small" id="status-sub"></div></div>
+    <a class="btn btn-outline btn-sm" href="reports.html" id="btn-status-report">View Report</a>
+  </div>
+
+  <div class="grid g-4 mt">
+    <div class="card stat"><div class="stat-icon" data-i="users"></div><div>
+      <div class="stat-label">Total Identities</div><div class="stat-value" id="k-total">128</div>
+      <div class="stat-foot"><a href="identities.html" id="lnk-identities">View identities &rarr;</a></div></div></div>
+    <div class="card stat"><div class="stat-icon" data-i="target"></div><div>
+      <div class="stat-label">Average Over-Privilege Score</div><div class="stat-value" id="k-avg">54</div>
+      <div class="stat-foot">Across all identities</div></div></div>
+    <div class="card stat"><div class="stat-icon" data-i="alert"></div><div>
+      <div class="stat-label">High-Risk Unused Permissions</div><div class="stat-value" id="k-risk">37</div>
+      <div class="stat-foot"><a href="findings.html" id="lnk-findings">View findings &rarr;</a></div></div></div>
+    <div class="card stat"><div class="stat-icon" data-i="key"></div><div>
+      <div class="stat-label">Roles Pending Review</div><div class="stat-value" id="k-pending-roles">4</div>
+      <div class="stat-foot"><a href="roles.html" id="lnk-roles">Review roles &rarr;</a></div></div></div>
+  </div>
+
+  <div class="grid g-2-1 mt">
+    <div class="card">
+      <div class="card-head">
+        <div><h2>Average Over-Privilege Score Trend</h2><div class="card-sub">Lower is better. Goal: below 40</div></div>
+        <select class="select" id="trend-range" style="width:160px">
+          <option value="6">Last 6 Months</option>
+          <option value="12">Last 12 Months</option>
+        </select>
+      </div>
+      <div id="trend-chart"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Risk Distribution</h2></div>
+      <div id="risk-donut"></div>
+      <div class="mt" style="border-top:1px solid var(--line-soft);padding-top:14px">
+        <div class="row-between small"><span class="muted">Analysis period</span><b id="k-period"></b></div>
+        <a class="btn btn-outline btn-block mt" href="roles.html" id="btn-review-roles">Review Generated Roles</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head">
+      <h2>Top Over-Privileged Identities</h2>
+      <a class="btn btn-outline btn-sm" href="identities.html" id="btn-all-identities">View All</a>
+    </div>
+    <div id="top-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="assessments" data-roles="architect">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="architect-dashboard.html">Home</a> / <a href="applications.html" id="crumb-apps">Applications</a> / Assessment</div>
+      <h1>Application Assessment <span id="status-badge" style="vertical-align:middle"></span></h1>
+      <p>Calculates <b>Technical Debt</b> and <b>Governance Risk</b> only. Modernization Risk is calculated on the Simulation screen after you pick a strategy.</p>
+    </div>
+    <div class="page-actions">
+      <select class="select" id="app-select" style="width:260px" aria-label="Select application"></select>
+      <button class="btn" id="btn-run"><span data-i="refresh"></span><span id="run-label">Run Assessment</span></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Application Summary</h2><span class="small muted" id="asm-date"></span></div>
+    <div class="ro-grid" id="summary"></div>
+  </div>
+
+  <div class="grid g-2 mt" id="results">
+    <div class="card">
+      <div class="card-head"><h2>Technical Debt</h2><span id="td-badge"></span></div>
+      <div class="row" style="align-items:baseline;gap:8px"><span class="metric-big" id="td-score">-</span><span class="muted">/ 100</span></div>
+      <div class="table-wrap mt"><table class="table"><thead><tr><th>Factor</th><th>Value</th><th class="right">Points</th></tr></thead><tbody id="td-factors"></tbody></table></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Governance Risk</h2><span id="gr-badge"></span></div>
+      <div class="row" style="align-items:baseline;gap:8px"><span class="metric-big" id="gr-score">-</span><span class="muted">/ 100</span></div>
+      <div class="table-wrap mt"><table class="table"><thead><tr><th>Factor</th><th>Result</th><th class="right">Points</th></tr></thead><tbody id="gr-factors"></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="card mt row-between wrap" id="next-box">
+    <span class="row small" id="next-text"></span>
+    <a class="btn" href="simulation.html" id="btn-continue"><span data-i="play"></span>Continue to Simulation</a>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>Assessment History</h2></div>
+    <div id="history"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/assessments.js"></script>
+</body>
+</html>

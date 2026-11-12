@@ -1,0 +1,92 @@
+/* =========================================================
+   Governance - governance.css
+   Extra styles only used by Cloud Governance pages:
+   wizard stepper, upload boxes, checks, progress, two-panel lists,
+   gate result box, report preview.
+   ========================================================= */
+
+/* Stepper */
+.stepper { display: flex; justify-content: space-between; position: relative; margin: 6px 40px 22px; }
+.stepper::before { content: ""; position: absolute; top: 17px; left: 30px; right: 30px; height: 2px; background: var(--line); }
+.step { display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; z-index: 1; min-width: 80px; }
+.step .dot { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--line); background: var(--white);
+             display: grid; place-items: center; font-weight: 700; color: var(--muted); }
+.step .label { font-size: 12px; font-weight: 600; color: var(--muted); }
+.step.active .dot { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.step.active .label { color: var(--ink); }
+.step.done .dot { border-color: var(--ink); color: var(--ink); }
+
+/* Upload boxes */
+.upload { border: 1.5px dashed var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 10px; background: #fcfcfc; }
+.upload.ok { border-style: solid; border-color: var(--ink); background: var(--white); }
+.upload .u-head { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; }
+.upload .u-file { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 8px; padding: 10px; min-height: 54px; }
+.upload .u-file small { display: block; color: var(--muted); font-size: 11px; }
+.upload input[type=file] { display: none; }
+
+/* Check list */
+.checks { display: flex; flex-direction: column; gap: 8px; }
+.check-row { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line-soft); border-radius: 8px; padding: 12px 14px; }
+.check-row .st { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; flex-shrink: 0; }
+.check-row.ok .st { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.check-row.ok .st .ic { width: 14px; height: 14px; }
+.check-row.run .st { border-top-color: var(--ink); animation: spin .8s linear infinite; }
+.check-row .grow { flex: 1; }
+.check-row small { color: var(--muted); display: block; }
+
+/* Progress */
+.progress { height: 12px; background: var(--bg-2); border-radius: 6px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0; background: var(--ink); transition: width .3s; }
+
+.summary-box { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border: 1px solid var(--line); border-radius: var(--radius);
+               padding: 20px 24px; text-align: left; max-width: 760px; margin-left: auto; margin-right: auto; }
+
+/* Two-panel list (Generated Roles) */
+.list-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; border: 1px solid var(--line-soft);
+             border-radius: 8px; cursor: pointer; margin-bottom: 8px; background: var(--white); width: 100%; text-align: left; font: inherit; }
+.list-item:hover { border-color: var(--line); }
+.list-item.active { border: 1.5px solid var(--ink); background: var(--bg); }
+.list-item small { color: var(--muted); display: block; font-size: 11px; }
+
+.warn-card { border: 1.5px solid var(--ink); border-radius: 8px; padding: 12px 14px; }
+.warn-card li { margin-left: 18px; font-size: 13px; margin-top: 4px; }
+
+.gate-box { border: 3px solid var(--ink); border-radius: 12px; padding: 14px 20px; text-align: center; font-size: 40px; font-weight: 900; letter-spacing: 4px; }
+.gate-box.pass { border-width: 1.5px; border-style: dashed; }
+
+/* Report preview */
+.preview { border: 1px solid var(--line); border-radius: 8px; padding: 20px; background: #fcfcfc; font-size: 12.5px; }
+.preview h3 { font-size: 16px; }
+.preview .mini-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+.preview .mini-stats div { border: 1px solid var(--line-soft); border-radius: 6px; padding: 8px; background: var(--white); text-align: center; }
+.preview .mini-stats b { display: block; font-size: 18px; }
+
+.weight-row { display: grid; grid-template-columns: 1fr 110px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
+.pattern-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
+
+@media (max-width: 800px) { .summary-box { grid-template-columns: 1fr; } .stepper { margin: 6px 0 22px; } }
+
+/* Steps not reached yet are greyed out */
+.step:not(.active):not(.done) .dot { background: #e6e6e6; border-color: #cfcfcf; color: #9a9a9a; }
+.step:not(.active):not(.done) .label { color: #9a9a9a; }
+
+/* Colour theme (v3) */
+.stepper::before { background: linear-gradient(90deg, var(--accent-line), var(--line)); }
+.step.active .dot { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: var(--accent); color: #fff;
+                    box-shadow: 0 0 0 5px var(--accent-soft); }
+.step.active .label { color: var(--accent); }
+.step.done .dot { background: var(--green); border-color: var(--green); color: #fff; }
+.step.done .label { color: var(--green); }
+.upload { background: #fafbff; border-color: var(--accent-line); }
+.upload.ok { border-color: var(--green); background: var(--green-soft); }
+.check-row.ok { border-color: var(--green-line); background: var(--green-soft); }
+.check-row.ok .st { background: var(--green); border-color: var(--green); }
+.check-row.run .st { border-top-color: var(--accent); }
+.progress-fill { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.summary-box { border-color: var(--accent-line); background: linear-gradient(135deg, var(--accent-soft), #fff); }
+.list-item.active { border-color: var(--accent); background: var(--accent-soft); }
+.list-item:hover { border-color: var(--accent-line); }
+.warn-card { border-color: var(--amber); background: var(--amber-soft); }
+.preview { border-color: var(--accent-line); background: #fafbff; }
+.preview .mini-stats div { border-color: var(--accent-line); }
+.preview .mini-stats b { color: var(--accent); }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout - SecureShift</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body data-root="">
+<div class="public">
+  <div class="auth-wrap">
+    <div style="width:100%;max-width:440px">
+      <div class="auth-logo" style="margin-bottom:22px">
+        <span class="brand-mark" id="logo-mark"></span>
+        <b>SECURESHIFT</b>
+        <span>Modernize · Govern · Secure</span>
+      </div>
+
+      <!-- Step 1: confirm -->
+      <div class="auth-card center" id="confirm-box">
+        <div class="modal-icon" id="ic-logout" style="width:64px;height:64px"></div>
+        <h1>Confirm Logout</h1>
+        <p class="sub" id="who">Are you sure you want to logout from your SecureShift account?</p>
+        <p class="small muted">Your current session will be securely terminated and you will be redirected to the login page.</p>
+        <div class="grid g-2 mt-lg">
+          <button class="btn" id="btn-logout">Logout</button>
+          <button class="btn btn-outline" id="btn-cancel">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Step 2: done -->
+      <div class="auth-card center hidden" id="done-box">
+        <div class="modal-icon" id="ic-done" style="width:64px;height:64px"></div>
+        <h1>You have been logged out</h1>
+        <p class="sub">Thank you for using SecureShift.</p>
+        <div class="grid g-2 mt-lg">
+          <a class="btn" href="login.html" id="btn-login-again">Login Again</a>
+          <a class="btn btn-outline" href="index.html" id="btn-home">Home Page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/common/core.js"></script>
+<script src="js/pages/logout.js"></script>
+</body>
+</html>

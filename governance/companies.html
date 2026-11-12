@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Companies - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="companies">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Companies</h1>
+      <p id="c-sub">Companies analysed in this workspace</p>
+    </div>
+    <div class="page-actions"><button class="btn" id="btn-add"><span data-i="plus"></span>Add Company Data</button></div>
+  </div>
+
+  <div class="card">
+    <div class="filters">
+      <div class="field grow"><label>Search</label>
+        <div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search company"></div></div>
+      <div class="field"><label>Risk Level</label><select class="select" id="f-risk"><option value="">All</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option></select></div>
+    </div>
+    <div id="c-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/companies.js"></script>
+</body>
+</html>

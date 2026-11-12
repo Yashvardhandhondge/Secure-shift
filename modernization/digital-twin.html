@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Digital Twin - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="twin" data-roles="admin,architect">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="#" id="crumb-home">Home</a> / Digital Twin</div>
+      <h1>Enterprise Digital Twin</h1>
+      <p>Each column is one application with its services, databases and APIs. Arrows show dependency links.</p>
+    </div>
+    <div class="page-actions" id="ent-picker"></div>
+  </div>
+
+  <div class="card">
+    <div class="filters">
+      <div class="field"><label>Node Type</label><select class="select" id="f-type"><option value="">All Types</option><option>Application</option><option>Service</option><option>Database</option><option>API</option></select></div>
+      <div class="field"><label>Application</label><select class="select" id="f-app"><option value="">All Applications</option></select></div>
+      <div class="field"><label>Link Criticality</label><select class="select" id="f-crit"><option value="">All</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></div>
+      <div class="field grow"><label>Search</label>
+        <div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search application, service, database or API"></div></div>
+      <button class="btn" id="btn-reset"><span data-i="refresh"></span>Reset</button>
+    </div>
+
+    <div class="row-between wrap" style="margin-bottom:10px">
+      <div class="toolbar">
+        <button class="btn btn-outline btn-sm" id="btn-fit"><span data-i="target"></span>Reset Layout</button>
+        <button class="btn btn-outline btn-sm" id="btn-labels"><span data-i="file"></span>Hide Link Labels</button>
+        <button class="btn btn-outline btn-sm" id="btn-export"><span data-i="download"></span>Export JSON</button>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--accent);border-color:var(--accent-dark)"></i>Application</span><span><i style="background:#eff6ff;border-color:#2563eb;border-style:dashed"></i>Service</span><span><i style="background:#fffbeb;border-color:#d97706"></i>Database</span><span><i style="background:#fdf2f8;border-color:#db2777;border-radius:50%"></i>API</span>
+      </div>
+    </div>
+
+    <div class="graph-wrap" id="graph" style="overflow-x:auto"></div>
+    <div class="card mt" id="detail" style="box-shadow:none"></div>
+    <p class="small muted mt">Tip: click a node to see its details and highlight its links. Drag nodes to rearrange the map.</p>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/digital-twin.js"></script>
+</body>
+</html>

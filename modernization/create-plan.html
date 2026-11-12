@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Plan - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="plans" data-roles="architect">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="architect-dashboard.html">Home</a> / <a href="plans.html">Plans</a> / <span id="crumb-last">Create Plan</span></div>
+      <h1 id="page-title">Create Modernization Plan</h1>
+      <p id="page-sub">Review the simulation summary, confirm the generated phases, then save a draft or submit for approval.</p>
+    </div>
+    <div class="page-actions"><span id="status-badge"></span><a class="btn btn-outline" href="simulation.html" id="btn-back-sim"><span data-i="arrowLeft"></span>Back to Simulation</a></div>
+  </div>
+
+  <div id="pick-sim" class="card hidden">
+    <div class="card-head"><h2>Choose a completed simulation</h2></div>
+    <p class="small muted" style="margin-bottom:12px">Every plan must come from a completed simulation, so effort, risk and cost have a reproducible source.</p>
+    <div id="sim-table"></div>
+  </div>
+
+  <div id="plan-body" class="hidden">
+    <div class="card" id="decision-card"></div>
+
+    <div class="card mt">
+      <div class="card-head"><h2>1. Simulation Summary <span class="small muted" style="font-weight:400">(read only)</span></h2><span class="small muted" id="source-sim"></span></div>
+      <div class="ro-grid" id="summary"></div>
+      <details class="snapshot mt" id="snapshot"><summary>View Breakdown (calculation snapshot)</summary><div id="snapshot-body" class="mt"></div></details>
+    </div>
+
+    <div class="grid g-2-1 mt">
+      <div class="card">
+        <div class="card-head"><h2>2. Plan Details</h2></div>
+        <div class="field"><label>Plan Name <span class="req">*</span> <span class="muted" style="font-weight:400">(auto-generated, you can edit)</span></label><input class="input" id="p-name" maxlength="80"></div>
+        <div class="field mt"><label>Architect Notes <span class="muted" style="font-weight:400">(optional)</span></label>
+          <textarea class="textarea" id="p-notes" maxlength="500" placeholder="e.g. Refactoring is recommended because the application has high technical debt and critical dependencies."></textarea>
+          <span class="small muted right" id="notes-count">0/500</span></div>
+        <div class="reco mt" id="reco"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Plan Info</h2></div>
+        <dl class="kv" style="grid-template-columns:120px 1fr" id="info"></dl>
+      </div>
+    </div>
+
+    <div class="grid g-2 mt">
+      <div class="card">
+        <div class="card-head"><h2>3. Affected Systems</h2><span class="small muted">Snapshot from the dependency map</span></div>
+        <div id="affected"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>4. Proposed Phases</h2><span id="phase-check"></span></div>
+        <div id="phases"></div>
+      </div>
+    </div>
+
+    <div class="card mt row-between wrap" id="actions">
+      <span class="small muted row"><span data-i="info"></span>After submission the plan is locked and sent to the Executive for review.</span>
+      <div class="row">
+        <a class="btn btn-outline" href="plans.html" id="btn-cancel">Cancel</a>
+        <button class="btn btn-outline" id="btn-draft">Save as Draft</button>
+        <button class="btn" id="btn-submit"><span data-i="arrowRight"></span>Submit for Approval</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/create-plan.js"></script>
+</body>
+</html>

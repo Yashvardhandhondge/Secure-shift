@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureShift - Secure Your Cloud. Modernize Your Applications.</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body data-root="">
+<div class="public">
+
+  <!-- Top navigation -->
+  <header class="pub-nav">
+    <a class="brand-sm" href="index.html"><span class="brand-mark" id="logo-mark"></span>SecureShift</a>
+    <nav class="pub-links">
+      <a href="#home" class="active">Home</a>
+      <div class="dd" id="products-dd">
+        <button id="products-btn" aria-haspopup="true">Products &#9662;</button>
+        <div class="dd-menu">
+          <a href="login.html?product=governance">Cloud Governance</a>
+          <a href="login.html?product=emdt">Application Modernization - EMDT</a>
+        </div>
+      </div>
+      <a href="#security">Security</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="row">
+      <a class="btn btn-outline" href="login.html" id="nav-login">Login</a>
+      <button class="btn" id="btn-appointment">Book an Appointment</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <span class="eyebrow">Unified Cloud &amp; Application Intelligence</span>
+      <h1>Secure Your Cloud.<br>Modernize Your Applications.</h1>
+      <p class="lead">An intelligent enterprise platform designed to strengthen cloud governance and simplify application
+        modernization. Gain visibility into permissions, identify security risks, uncover application dependencies and
+        make smarter technology decisions.</p>
+      <div class="hero-cta">
+        <a class="btn" href="login.html?product=governance" id="cta-governance">Explore Governance</a>
+        <a class="btn btn-outline" href="login.html?product=emdt" id="cta-modernization">Explore Modernization</a>
+      </div>
+      <div class="trust" id="trust"></div>
+    </div>
+
+    <div class="eco">
+      <div class="eco-head"><span class="eyebrow">Explore our products</span><span class="live">Two integrated solutions</span></div>
+      <h2 style="margin-top:12px">Discover the SecureShift Ecosystem</h2>
+      <p class="muted small">Choose a solution to explore how SecureShift helps organizations manage cloud access and modernize applications.</p>
+
+      <a class="product-card" href="login.html?product=governance" id="card-custom-role">
+        <span class="pc-icon" data-icon="shieldCheck"></span>
+        <div><h3>Cloud Governance</h3>
+          <p>Analyze cloud permissions, identify unused access, calculate over-privilege risk and generate least-privilege custom role recommendations.</p></div>
+        <span class="go" data-icon="arrowRight"></span>
+      </a>
+      <a class="product-card" href="login.html?product=emdt" id="card-emdt">
+        <span class="pc-icon" data-icon="network"></span>
+        <div><h3>Application Modernization - EMDT</h3>
+          <p>Discover application dependencies, assess technical debt, simulate modernization scenarios and build structured roadmaps.</p></div>
+        <span class="go" data-icon="arrowRight"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="band" id="security">
+    <div class="section">
+      <h2 class="big">Built for governance and modernization teams</h2>
+      <p class="sub">Both products share one secure login, one design and one source of truth.</p>
+      <div class="grid g-4" id="features"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <h2 class="big">Frequently asked questions</h2>
+    <p class="sub">Quick answers about the SecureShift prototype.</p>
+    <details open><summary>What is Cloud Governance?</summary><p>Cloud Governance compares the Azure permissions a user or service has been granted with the permissions they actually used, gives an Over-Privilege Score from 0 to 100 and builds a smaller custom role.</p></details>
+    <details><summary>What is EMDT?</summary><p>EMDT (Enterprise Modernization Digital Twin) models applications, APIs, databases and their links, so teams can simulate a modernization before spending money.</p></details>
+    <details><summary>Is any real data used?</summary><p>No. Sprint 1 is a front-end prototype. All data is hardcoded sample data.</p></details>
+    <details><summary>Which demo accounts can I use?</summary><p>The login page lists every demo account. Click one to fill the form. Password for all: <b>Secure@123</b>.</p></details>
+  </section>
+
+  <footer class="pub-footer">
+    <span>© 2026 SecureShift · Cloud Domain · TCS Training Project</span>
+    <span>Group 3 (Nimbus) &amp; Group 4 (ModernOps)</span>
+  </footer>
+</div>
+
+<script src="js/common/core.js"></script>
+<script src="js/common/ui.js"></script>
+<script src="js/pages/landing.js"></script>
+</body>
+</html>

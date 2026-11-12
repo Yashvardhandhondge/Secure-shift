@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Approval Dashboard - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="dashboard" data-roles="executive">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs">Home / Executive Approval Dashboard</div>
+      <h1>Executive Approval Dashboard</h1>
+      <p>Modernization plans submitted by Architects. Review a plan, then approve or reject it.</p>
+    </div>
+  </div>
+
+  <div class="grid g-3" id="kpis"></div>
+
+  <div class="card mt">
+    <form class="filters" id="filter-form" style="margin-bottom:14px">
+      <div class="field"><label>Status</label><select class="select" id="f-status"><option>Submitted</option><option>Approved</option><option>Rejected</option><option value="">All</option></select></div>
+      <div class="field"><label>Risk Level</label><select class="select" id="f-risk"><option value="">All Risks</option><option>High</option><option>Medium</option><option>Low</option></select></div>
+      <div class="field"><label>Enterprise</label><select class="select" id="f-ent"><option value="">All Enterprises</option></select></div>
+      <button class="btn" type="submit" id="btn-apply">Apply Filter</button>
+      <button class="btn btn-outline" type="button" id="btn-clear">Clear</button>
+    </form>
+    <div class="row-between"><h2>Modernization Plans</h2><span class="small muted" id="showing"></span></div>
+    <div id="plans-table" class="mt"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/executive-dashboard.js"></script>
+</body>
+</html>

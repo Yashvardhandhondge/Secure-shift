@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architect Dashboard - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="dashboard" data-roles="architect">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs">Home / Dashboard</div>
+      <h1>Architect Dashboard</h1>
+      <p>Enterprises you can analyse. Open an enterprise to see its applications, then assess and simulate.</p>
+    </div>
+  </div>
+
+  <div class="grid g-4" id="kpis"></div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>Enterprises</h2><span class="small muted">Click an enterprise to open its Application Inventory</span></div>
+    <div id="ent-table"></div>
+  </div>
+
+  <div class="grid g-2 mt">
+    <div class="card">
+      <div class="card-head"><h2>Recent Assessments</h2><a class="small bold" href="assessments.html" id="lnk-assess">Assessments &rarr;</a></div>
+      <div id="assess-table"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Recent Simulations</h2><a class="small bold" href="simulation.html" id="lnk-sim">Simulations &rarr;</a></div>
+      <div id="sim-table"></div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>My Plans</h2><a class="small bold" href="plans.html" id="lnk-plans">All plans &rarr;</a></div>
+    <div id="plan-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/architect-dashboard.js"></script>
+</body>
+</html>

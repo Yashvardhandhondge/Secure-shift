@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-Risk Findings - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="findings">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>High-Risk Unused Permissions</h1>
+      <p>Dangerous permissions that were granted but never used</p>
+    </div>
+    <div class="page-actions"><button class="btn" id="btn-export"><span data-i="download"></span>Export Findings</button></div>
+  </div>
+
+  <div class="grid g-5" id="summary-cards"></div>
+
+  <div class="card mt">
+    <div class="filters">
+      <div class="field"><label>Category</label>
+        <select class="select" id="f-category"><option value="">All</option><option>Delete</option><option>Network</option><option>Key Vault</option><option>Role Assignment</option></select></div>
+      <div class="field"><label>Identity</label><select class="select" id="f-identity"><option value="">All</option></select></div>
+      <div class="field"><label>Severity</label>
+        <select class="select" id="f-severity"><option value="">All</option><option>HIGH</option><option>MEDIUM</option></select></div>
+      <button class="btn btn-outline" id="btn-clear">Clear</button>
+    </div>
+    <div id="f-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/findings.js"></script>
+</body>
+</html>

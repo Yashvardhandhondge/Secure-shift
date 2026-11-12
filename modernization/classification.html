@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Classification (EMSI) - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="classification" data-roles="admin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="admin-dashboard.html">Home</a> / <a href="#" id="crumb-ent">Enterprise</a> / Classification</div>
+      <h1>Enterprise Classification (EMSI)</h1>
+      <p>Enter the enterprise portfolio details. We calculate the EMSI score (0-100), the category and the subscription price.</p>
+    </div>
+    <div class="page-actions" id="ent-picker"></div>
+  </div>
+
+  <div class="grid g-2-1">
+    <form class="card" id="cls-form" novalidate>
+      <div class="card-head"><h2 id="form-title">Portfolio Details</h2><span class="small muted">All fields are required</span></div>
+
+      <div class="section-title"><span data-i="grid"></span>Applications &amp; Integration</div>
+      <div class="form-grid">
+        <div class="field"><label>Total applications <span class="req">*</span></label><input class="input" type="number" id="c-totalApps" min="1" placeholder="1 - 100000"><span class="small muted">Overall application portfolio size</span></div>
+        <div class="field"><label>Number of dependencies <span class="req">*</span></label><input class="input" type="number" id="c-deps" min="0" placeholder="0 or more"><span class="small muted">Relationships between applications</span></div>
+        <div class="field"><label>Number of APIs <span class="req">*</span></label><input class="input" type="number" id="c-apis" min="0" placeholder="0 or more"><span class="small muted">Integration complexity</span></div>
+        <div class="field"><label>Lines of code (total) <span class="req">*</span></label><input class="input" type="number" id="c-loc" min="1000" placeholder="e.g. 1500000"><span class="small muted">1,000 to 1,000,000,000</span></div>
+      </div>
+
+      <div class="section-title"><span data-i="database"></span>Data &amp; Infrastructure</div>
+      <div class="form-grid">
+        <div class="field"><label>Number of databases <span class="req">*</span></label><input class="input" type="number" id="c-dbs" min="1" placeholder="1 or more"></div>
+        <div class="field"><label>Database &amp; storage size (GB) <span class="req">*</span></label><input class="input" type="number" id="c-storageGB" min="1" placeholder="e.g. 2048 (= 2 TB)"><span class="small muted">1 TB = 1024 GB</span></div>
+        <div class="field"><label>Number of environments <span class="req">*</span></label><input class="input" type="number" id="c-envs" min="1" max="20" placeholder="Dev, Test, Staging, Prod = 4"></div>
+        <div class="field"><label>Cloud infrastructure type <span class="req">*</span></label>
+          <select class="select" id="c-cloud"><option value="">Select type</option><option>Public Cloud</option><option>Private Cloud</option><option>Hybrid Cloud</option><option>Multi-Cloud</option></select></div>
+      </div>
+
+      <div class="section-title"><span data-i="building"></span>Organization</div>
+      <div class="form-grid">
+        <div class="field"><label>Number of business units <span class="req">*</span></label><input class="input" type="number" id="c-units" min="1" placeholder="1 - 500"></div>
+        <div class="field"><label>Number of active users <span class="req">*</span></label><input class="input" type="number" id="c-users" min="1" placeholder="Users of the EMDT platform"></div>
+        <div class="field full"><label>Technology diversity <span class="req">*</span> <span class="muted" style="font-weight:400">(select every stack used)</span></label>
+          <div class="check-grid" id="c-techs"></div><span class="small muted">Score = sum of selected values ÷ 740 × 100 (Java 75, PHP 95, .NET 120, COBOL 450)</span></div>
+        <div class="field full"><label>Governance policies used <span class="muted" style="font-weight:400">(select all that apply)</span></label>
+          <div class="check-grid" id="c-policies"></div></div>
+      </div>
+
+      <div class="section-title"><span data-i="alert"></span>Application Criticality <span class="muted small" style="font-weight:400">- how many applications are in each level (must add up to Total applications)</span></div>
+      <div class="grid g-4">
+        <div class="field"><label>Low</label><input class="input" type="number" id="c-crit-low" min="0" value="0"></div>
+        <div class="field"><label>Medium</label><input class="input" type="number" id="c-crit-medium" min="0" value="0"></div>
+        <div class="field"><label>High</label><input class="input" type="number" id="c-crit-high" min="0" value="0"></div>
+        <div class="field"><label>Critical</label><input class="input" type="number" id="c-crit-critical" min="0" value="0"></div>
+      </div>
+      <div class="small mt" id="crit-sum"></div>
+
+      <div class="row mt-lg" style="justify-content:flex-end">
+        <a class="btn btn-outline" href="enterprise.html" id="btn-cancel">Cancel</a>
+        <button class="btn" type="submit" id="btn-calc"><span data-i="target"></span>Save &amp; Calculate EMSI</button>
+      </div>
+    </form>
+
+    <aside>
+      <div class="card" id="result-card">
+        <div class="card-head"><h2>EMSI Result</h2></div>
+        <div id="result"></div>
+      </div>
+      <div class="guide mt">
+        <b>How the category is decided</b>
+        <ul>
+          <li>Each parameter gets a score from 0 to 100.</li>
+          <li>EMSI = sum of (score × weight). Weights add up to 100%.</li>
+          <li>Foundation 0-25 · Growth 25-45 · Enterprise 45-70 · Strategic 70-100</li>
+          <li>The category sets the subscription price and the effort multiplier used in simulations.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="card mt hidden" id="breakdown-card">
+    <div class="card-head"><h2>Score Breakdown</h2><span class="small muted">EMSI = Σ (score × weight)</span></div>
+    <div id="breakdown"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/classification.js"></script>
+</body>
+</html>

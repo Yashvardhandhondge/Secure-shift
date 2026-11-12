@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dependency Mapping - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="deps" data-roles="admin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="admin-dashboard.html">Home</a> / <a href="#" id="crumb-ent">Enterprise</a> / Dependencies</div>
+      <h1>Dependency Mapping</h1>
+      <p>Step 1: add the components of each application (Service, Database, API). Step 2: connect them with dependency links. Step 3: see the scores.</p>
+    </div>
+    <div class="page-actions" id="ent-picker"></div>
+  </div>
+
+  <div class="grid g-4" id="kpis"></div>
+
+  <div class="grid g-1-2 mt">
+    <div class="card">
+      <div class="card-head"><h2>1. Components</h2><button class="btn btn-sm" id="btn-add-node"><span data-i="plus"></span>Add Component</button></div>
+      <div class="field" style="margin-bottom:10px"><select class="select" id="f-node-app" aria-label="Filter by application"><option value="">All applications</option></select></div>
+      <div id="node-table"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>2. Dependency Links</h2><button class="btn btn-sm" id="btn-add-link"><span data-i="link"></span>Add Dependency</button></div>
+      <div class="filters">
+        <div class="field grow"><label>Search</label><div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search source, target or description"></div></div>
+        <div class="field"><label>Type</label><select class="select" id="f-type"><option value="">All</option><option>Application</option><option>Service</option><option>Database</option><option>API</option></select></div>
+        <div class="field"><label>Criticality</label><select class="select" id="f-crit"><option value="">All</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></div>
+      </div>
+      <div id="link-table"></div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>3. Results - Dependency Score per Application</h2><span class="small muted">Only direct outgoing links count for the source application</span></div>
+    <div class="grid g-2-1">
+      <div id="result-table"></div>
+      <div class="guide">
+        <b>How points are calculated</b>
+        <ul>
+          <li><b>Dependency Points</b> = Type Weight × Criticality Points</li>
+          <li>Type weight: Application 4 · Service 3 · Database 3 · API 2</li>
+          <li>Criticality: Low 1 · Medium 2 · High 3 · Critical 4</li>
+          <li><b>Raw points</b> = sum of all outgoing links</li>
+          <li><b>Dependency Impact</b> = 100 × (1 − e<sup>−raw/20</sup>) &rarr; 0-100 with diminishing returns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/dependencies.js"></script>
+</body>
+</html>

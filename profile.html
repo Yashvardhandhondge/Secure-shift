@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile &amp; Settings - SecureShift</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body data-root="" data-product="any" data-page="profile">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="#" id="crumb-home">Home</a> / Profile</div>
+      <h1>Profile &amp; Settings</h1>
+      <p id="profile-sub">Manage your account details and password.</p>
+    </div>
+  </div>
+
+  <div class="grid g-1-2">
+    <div class="card center">
+      <div class="avatar" id="p-avatar" style="width:84px;height:84px;font-size:28px;margin:6px auto 12px;border-width:2px"></div>
+      <h2 id="p-name"></h2>
+      <p class="muted" id="p-email"></p>
+      <div class="mt"><span class="badge badge-solid" id="p-role"></span></div>
+      <dl class="kv mt-lg" style="text-align:left">
+        <dt>Product</dt><dd id="p-product"></dd>
+        <dt>User ID</dt><dd id="p-id"></dd>
+        <dt>Logged in at</dt><dd id="p-login"></dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="tabs" role="tablist">
+        <button data-tab="details" class="active">Profile Details</button>
+        <button data-tab="password">Change Password</button>
+        <button data-tab="notifications" data-gov-only>Notifications</button>
+        <button data-tab="activity" data-gov-only>Activity</button>
+      </div>
+
+      <!-- Details -->
+      <section data-panel="details">
+        <form id="form-details" class="form-grid" novalidate>
+          <div class="field"><label>Full Name <span class="req">*</span></label><input class="input" id="d-name"></div>
+          <div class="field"><label>Email</label><input class="input" id="d-email" disabled></div>
+          <div class="field"><label>Phone <span class="req">*</span></label><input class="input" id="d-phone" placeholder="10 digit number"></div>
+          <div class="field"><label>Department <span class="req">*</span></label><input class="input" id="d-dept" maxlength="150"></div>
+          <div class="full row" style="justify-content:flex-end"><button class="btn" type="submit" id="btn-save-details">Save Changes</button></div>
+        </form>
+      </section>
+
+      <!-- Password -->
+      <section data-panel="password" class="hidden">
+        <form id="form-password" class="form-grid" novalidate>
+          <div class="field full"><label>Current Password <span class="req">*</span></label><input class="input" type="password" id="pw-current"></div>
+          <div class="field"><label>New Password <span class="req">*</span></label><input class="input" type="password" id="pw-new"></div>
+          <div class="field"><label>Confirm New Password <span class="req">*</span></label><input class="input" type="password" id="pw-confirm"></div>
+          <p class="full small muted">Minimum 8 characters with an uppercase letter, a lowercase letter, a number and a special character.</p>
+          <div class="full row" style="justify-content:flex-end"><button class="btn" type="submit" id="btn-change-pw">Update Password</button></div>
+        </form>
+      </section>
+
+      <!-- Notifications -->
+      <section data-panel="notifications" class="hidden">
+        <div id="notif-settings" style="display:flex;flex-direction:column;gap:14px"></div>
+        <div class="row mt-lg" style="justify-content:flex-end"><button class="btn" id="btn-save-notif">Save Preferences</button></div>
+      </section>
+
+      <!-- Activity -->
+      <section data-panel="activity" class="hidden">
+        <div id="activity-table"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="js/common/core.js"></script>
+<script src="js/common/ui.js"></script>
+<script src="js/data/users.js"></script>
+<script src="js/data/governance-data.js"></script>
+<script src="js/data/emdt-data.js"></script>
+<script src="js/data/emdt-calc.js"></script>
+<script src="js/common/shell.js"></script>
+<script src="js/pages/profile.js"></script>
+</body>
+</html>

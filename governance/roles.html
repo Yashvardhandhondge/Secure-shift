@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated Roles - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="roles">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Generated Custom Roles</h1>
+      <p>Minimal roles built only from actions that were actually used</p>
+    </div>
+  </div>
+
+  <div class="grid g-1-2">
+    <div class="card">
+      <div class="card-head"><h2>Roles</h2><span class="small muted" id="role-count"></span></div>
+      <div id="role-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2 id="r-title"></h2><span id="r-status"></span></div>
+      <div class="table-wrap"><table class="table"><thead><tr><th>Original Role</th><th>Suggested Scope</th><th>Actions</th></tr></thead>
+        <tbody><tr><td id="r-original"></td><td id="r-scope"></td><td id="r-actions"></td></tr></tbody></table></div>
+
+      <div class="row-between mt">
+        <b class="small">Role definition (JSON)</b>
+        <label class="check"><input type="checkbox" id="chk-baseline"> Include baseline read permissions</label>
+      </div>
+      <pre class="code mt" id="r-json"></pre>
+
+      <div class="warn-card mt" id="rare-box"></div>
+
+      <div class="row wrap mt-lg">
+        <button class="btn" id="btn-download"><span data-i="download"></span>Download Role JSON</button>
+        <button class="btn btn-outline" id="btn-copy-az"><span data-i="copy"></span>Copy az command</button>
+        <button class="btn btn-outline" id="btn-reviewed"><span data-i="check"></span>Mark as Reviewed</button>
+      </div>
+      <div class="mt"><span class="code-inline" id="az-cmd"></span></div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/roles.js"></script>
+</body>
+</html>

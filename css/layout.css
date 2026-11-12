@@ -1,0 +1,126 @@
+/* =========================================================
+   SecureShift - layout.css
+   App frame: sidebar, top header, content area, footer.
+   Used by every page inside /governance and /modernization.
+   ========================================================= */
+
+.app { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+.app.collapsed { grid-template-columns: 72px 1fr; }
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  background: var(--bg); border-right: 1px solid var(--line-soft);
+  display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.brand { display: flex; align-items: center; gap: 10px; padding: 18px 18px 16px; border-bottom: 1px solid var(--line-soft); }
+.brand-mark {
+  width: 36px; height: 36px; border-radius: 9px; background: var(--ink); color: var(--white);
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.brand-name { font-weight: 800; font-size: 16px; letter-spacing: -0.2px; line-height: 1.1; }
+.brand-tag { font-size: 11px; color: var(--muted); }
+
+.nav { padding: 10px 12px; flex: 1; }
+.nav-group { font-size: 10.5px; font-weight: 700; letter-spacing: 0.9px; color: var(--muted-2);
+             text-transform: uppercase; padding: 14px 10px 6px; }
+.nav a {
+  display: flex; align-items: center; gap: 11px; padding: 9px 10px; border-radius: 8px;
+  color: var(--ink-2); font-weight: 500; font-size: 13.5px; border: 1px solid transparent; margin-bottom: 2px;
+}
+.nav a:hover { background: var(--bg-2); text-decoration: none; }
+.nav a.active { background: var(--white); border-color: var(--ink); color: var(--ink); font-weight: 700; }
+
+.side-user { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-top: 1px solid var(--line-soft); }
+.avatar {
+  width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--white);
+  display: grid; place-items: center; font-size: 12px; font-weight: 800; flex-shrink: 0;
+}
+.side-user .who { line-height: 1.2; overflow: hidden; }
+.side-user .who b { display: block; font-size: 13px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.side-user .who span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.6px; color: var(--muted); text-transform: uppercase; }
+
+.app.collapsed .brand-text, .app.collapsed .nav-group, .app.collapsed .nav a span,
+.app.collapsed .side-user .who { display: none; }
+.app.collapsed .nav a { justify-content: center; }
+
+/* ---------- Main column ---------- */
+.main { display: flex; flex-direction: column; min-width: 0; }
+
+.topbar {
+  height: 66px; background: var(--white); border-bottom: 1px solid var(--line-soft);
+  display: flex; align-items: center; gap: 16px; padding: 0 24px; position: sticky; top: 0; z-index: 100;
+}
+.icon-btn { width: 38px; height: 38px; border-radius: 8px; border: 1px solid transparent; background: none;
+            display: grid; place-items: center; cursor: pointer; color: var(--ink); position: relative; }
+.icon-btn:hover { background: var(--bg); }
+.icon-btn .dot { position: absolute; top: 8px; right: 9px; width: 8px; height: 8px; background: var(--ink); border-radius: 50%; border: 2px solid var(--white); }
+.top-title { flex: 1; text-align: center; line-height: 1.25; }
+.top-title b { font-size: 15px; }
+.top-title div { font-size: 11.5px; color: var(--muted); }
+.top-user { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 8px; border-radius: 8px; position: relative; border: none; background: none; font: inherit; }
+.top-user:hover { background: var(--bg); }
+.top-user .who { text-align: left; line-height: 1.2; }
+.top-user .who b { display: block; font-size: 13px; }
+.top-user .who span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.6px; color: var(--muted); text-transform: uppercase; }
+
+.content { padding: 24px 28px 32px; flex: 1; width: 100%; max-width: 1440px; margin: 0 auto; }
+
+.page-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.page-head p { color: var(--muted); margin-top: 4px; }
+.page-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.crumbs { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.crumbs a { color: var(--muted); }
+.crumbs a:hover { color: var(--ink); }
+
+.footer {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 16px 28px; border-top: 1px solid var(--line-soft); background: var(--white);
+  font-size: 12px; color: var(--muted);
+}
+.footer nav { display: flex; gap: 8px; }
+.footer nav a { color: var(--muted); }
+
+/* Notification panel */
+.notif-panel { right: 0; top: 46px; width: 320px; }
+.notif-item { padding: 10px; border-radius: 6px; font-size: 13px; }
+.notif-item + .notif-item { border-top: 1px solid var(--line-soft); }
+.notif-item small { display: block; color: var(--muted); font-size: 11px; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 72px 1fr; }
+  .brand-text, .nav-group, .nav a span, .side-user .who, .top-title div { display: none; }
+  .nav a { justify-content: center; }
+  .content { padding: 18px; }
+}
+
+@media (max-width: 700px) {
+  .page-head { flex-direction: column; }
+  .topbar { padding: 0 10px; gap: 6px; }
+  .top-title { display: none; }
+  .top-user .who { display: none; }
+  .topbar #btn-bell { margin-left: auto; }
+  .footer { padding: 14px 18px; }
+}
+
+/* =========================================================
+   Colour theme (v3): dark coloured sidebar, accent top line
+   ========================================================= */
+.sidebar { background: linear-gradient(180deg, var(--accent-dark) 0, #0f172a 100%); border-right: none; color: #fff; }
+.brand { border-bottom-color: rgba(255, 255, 255, .10); }
+.brand-mark { background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 4px 12px rgba(0, 0, 0, .3); }
+.sidebar .brand-name { color: #fff; }
+.sidebar .brand-tag { color: rgba(255, 255, 255, .6); }
+.nav-group { color: rgba(255, 255, 255, .45); }
+.nav a { color: rgba(255, 255, 255, .78); }
+.nav a:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+.nav a.active { background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 55%, transparent));
+                border-color: transparent; color: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .25); }
+.side-user { border-top-color: rgba(255, 255, 255, .10); }
+.side-user .who b { color: #fff; }
+.side-user .who span { color: rgba(255, 255, 255, .55); }
+.avatar { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: 2px solid #fff; }
+.topbar { box-shadow: inset 0 3px 0 var(--accent); border-bottom-color: #e5e7eb; }
+.icon-btn:hover, .top-user:hover { background: var(--accent-soft); }
+.icon-btn .dot { background: var(--red); }
+.crumbs a:hover { color: var(--accent); }
+.footer nav a:hover { color: var(--accent); }

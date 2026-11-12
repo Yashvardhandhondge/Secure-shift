@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Details - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="dashboard" data-roles="admin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs"><a href="admin-dashboard.html">Home</a> / Enterprises / <span id="crumb-name"></span></div>
+      <h1 id="e-title">Enterprise Details</h1>
+      <p>Everything we know about this enterprise: registration, classification (EMSI), pricing and landscape.</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-outline" id="btn-edit-info"><span data-i="edit"></span>Edit Registration</button>
+      <a class="btn" href="classification.html" id="btn-classify"><span data-i="target"></span><span id="classify-label">Add Details</span></a>
+    </div>
+  </div>
+
+  <div class="grid g-4" id="kpis"></div>
+
+  <div class="grid g-2 mt">
+    <div class="card">
+      <div class="card-head"><h2>Registration Details</h2><span id="status-badge"></span></div>
+      <dl class="kv" id="reg"></dl>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Classification &amp; Pricing</h2></div>
+      <div id="class-box"></div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head"><h2>Classification Inputs</h2><a class="small bold" href="classification.html" id="lnk-edit-class">Edit details &rarr;</a></div>
+    <div id="inputs"></div>
+  </div>
+
+  <div class="grid g-3 mt">
+    <a class="card stat" href="applications.html" id="go-apps"><div class="stat-icon" data-i="grid"></div><div><div class="stat-label">Application Inventory</div><div class="stat-foot">Register and update applications &rarr;</div></div></a>
+    <a class="card stat" href="dependencies.html" id="go-deps"><div class="stat-icon" data-i="link"></div><div><div class="stat-label">Dependencies</div><div class="stat-foot">Map services, databases and APIs &rarr;</div></div></a>
+    <a class="card stat" href="digital-twin.html" id="go-twin"><div class="stat-icon" data-i="network"></div><div><div class="stat-label">Digital Twin</div><div class="stat-foot">See the connected landscape &rarr;</div></div></a>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/enterprise.js"></script>
+</body>
+</html>

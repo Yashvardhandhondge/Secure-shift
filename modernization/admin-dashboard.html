@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - EMDT - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/emdt.css">
+</head>
+<body data-root="../" data-product="emdt" data-page="dashboard" data-roles="admin">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <div class="crumbs">Home / Dashboard</div>
+      <h1>Admin Dashboard</h1>
+      <p>All enterprises onboarded on EMDT. Open an enterprise to see its details, classification and applications.</p>
+    </div>
+    <div class="page-actions"><button class="btn" id="btn-register"><span data-i="plus"></span>Register New Enterprise</button></div>
+  </div>
+
+  <div class="grid g-4" id="kpis"></div>
+
+  <div class="grid g-2-1 mt">
+    <div class="card">
+      <div class="card-head"><h2>Enterprises</h2><span class="small muted" id="ent-count"></span></div>
+      <div class="filters">
+        <div class="field grow"><label>Search</label>
+          <div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search by enterprise name, ID or city"></div></div>
+        <div class="field"><label>Category</label><select class="select" id="f-cat"><option value="">All</option><option>Foundation</option><option>Growth</option><option>Enterprise</option><option>Strategic</option><option value="none">Not classified</option></select></div>
+      </div>
+      <div id="ent-table"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Enterprises by Category</h2></div>
+      <div id="cat-donut"></div>
+      <div class="mt small muted">Category comes from the EMSI score calculated on the Classification tab.</div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/emdt-data.js"></script>
+<script src="../js/data/emdt-calc.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/admin-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identities - Governance - SecureShift</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/governance.css">
+</head>
+<body data-root="../" data-product="governance" data-page="identities">
+
+<main id="page" hidden>
+  <div class="page-head">
+    <div>
+      <h1>Identities and Over-Privilege Scores</h1>
+      <p>Review granted vs used access for every identity</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="filters">
+      <div class="field grow"><label>Search</label>
+        <div class="input-icon"><span data-i="search"></span><input class="input" id="f-search" placeholder="Search by name or user name"></div></div>
+      <div class="field"><label>Company</label><select class="select" id="f-company"></select></div>
+      <div class="field"><label>Type</label>
+        <select class="select" id="f-type"><option value="">All</option><option>User</option><option>Service Principal</option><option>Managed Identity</option></select></div>
+      <div class="field"><label>Score</label>
+        <select class="select" id="f-score"><option value="">All</option><option value="HIGH">High (70-100)</option><option value="MEDIUM">Medium (40-69)</option><option value="LOW">Low (0-39)</option></select></div>
+      <button class="btn btn-outline" id="btn-clear">Clear</button>
+      <button class="btn btn-outline" id="btn-export"><span data-i="download"></span>Export</button>
+    </div>
+    <div id="id-table"></div>
+  </div>
+</main>
+
+<script src="../js/common/core.js"></script>
+<script src="../js/common/ui.js"></script>
+<script src="../js/data/users.js"></script>
+<script src="../js/data/governance-data.js"></script>
+<script src="../js/common/shell.js"></script>
+<script src="js/identities.js"></script>
+</body>
+</html>
